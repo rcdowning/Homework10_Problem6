@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
@@ -5,7 +6,10 @@ using namespace std;
 ////////////////////////// Main Code /////////////////////////
 int main() {
   // declare variables
-  double MPG, AVG;
+  double MPG;
+  double AVG;
+  double countMiles = 0;
+  double countGals = 0;
 
   // declare stuct
   struct Car {
@@ -30,26 +34,22 @@ int main() {
   }
 
   // loop for car's mpg
-  for (int k = 0; k < 5; k++) {
-    MPG = (CarInfo[k].Miles) / (CarInfo[k].GalUsed);
+  for (int j = 0; j < 5; j++) {
+    for (int k = 0; k < 5; k++) {
+      MPG = (CarInfo[k].Miles) / (CarInfo[k].GalUsed);
 
-    cout << "Car number " << CarInfo[k].CarNo << " gets " << MPG
-         << " miles per gallon. " << endl;
+      cout << "Car number " << CarInfo[k].CarNo << " gets " << fixed
+           << showpoint << setprecision(2) << MPG << " miles per gallon. "
+           << endl;
+    }
+    countMiles += CarInfo[j].Miles;
+    countGals += CarInfo[j].GalUsed;
   }
+    AVG = (countMiles) / (countGals);
+  
+  cout << "The average MPG for the entire fleet of cars is "
+       << AVG << endl; 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* //////////////////// User Defined Functions //////////////////
 
