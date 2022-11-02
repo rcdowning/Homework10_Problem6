@@ -14,8 +14,8 @@ int main() {
   // declare stuct
   struct Car {
     int CarNo;
-    int Miles;
-    int GalUsed;
+    double Miles;
+    double GalUsed;
   };
 
   // array of 5 structs to accept user input
@@ -34,21 +34,22 @@ int main() {
   }
 
   // loop for car's mpg
-  for (int j = 0; j < 5; j++) {
+  //for (int j = 0; j < 5; j++) {
     for (int k = 0; k < 5; k++) {
       MPG = (CarInfo[k].Miles) / (CarInfo[k].GalUsed);
 
       cout << "Car number " << CarInfo[k].CarNo << " gets " << fixed
            << showpoint << setprecision(2) << MPG << " miles per gallon. "
            << endl;
+      
+      countMiles += CarInfo[k].Miles;
+    countGals += CarInfo[k].GalUsed;
     }
-    countMiles += CarInfo[j].Miles;
-    countGals += CarInfo[j].GalUsed;
-  }
-    AVG = (countMiles) / (countGals);
-  
-  cout << "The average MPG for the entire fleet of cars is "
-       << AVG << endl; 
+    
+  //}
+  AVG = (countMiles) / (countGals);
+
+  cout << "The average MPG for the entire fleet of cars is " << AVG << endl;
 }
 
 /* //////////////////// User Defined Functions //////////////////
